@@ -34,7 +34,7 @@ public class HttpRequestsStepDef {
         this.data = common.LoadTestData().get("test_data").getAsJsonObject();
     }
 
-    @Given("The API is up and running to hit the {string} request for {int}")
+    @Given("The API is up and running to hit the {string} request for test data {int}")
     public void the_api_is_up_and_running_to_hit_the_request_for(String method, int data_id) {
         this.method = method;
         jsonArray = data.get(method).getAsJsonArray();
@@ -63,7 +63,6 @@ public class HttpRequestsStepDef {
     @Then("User can verify the response body")
     public void user_can_verify_the_response_body() {
         String responseBody = response.getBody().asString();
-        System.out.println(responseBody);
         Assert.assertTrue("Response body doesn't contain the expected value", responseBody.contains(pojo.getExpectedContent()));
 
     }
