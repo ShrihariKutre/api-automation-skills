@@ -1,0 +1,117 @@
+{
+  "test_data": {
+    "Get": [
+      {
+        "data_id": 1,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/users",
+        "method": "Get",
+        "expectedStatusCode": 200,
+        "expectedContent": "{\n    \"id\": 1,\n    \"name\": \"Leanne Graham\",\n    \"username\": \"Bret\",\n    \"email\": \"Sincere@april.biz\",\n    \"address\": {\n      \"street\": \"Kulas Light\",\n      \"suite\": \"Apt. 556\",\n      \"city\": \"Gwenborough\",\n      \"zipcode\": \"92998-3874\",\n      \"geo\": {\n        \"lat\": \"-37.3159\",\n        \"lng\": \"81.1496\"\n      }\n    }"
+      },
+      {
+        "data_id": 2,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/albums",
+        "method": "Get",
+        "expectedStatusCode": 200,
+        "expectedContent": "{\n    \"userId\": 1,\n    \"id\": 1,\n    \"title\": \"quidem molestiae enim\"\n  }"
+      },
+      {
+        "data_id": 3,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/photos",
+        "method": "Get",
+        "expectedStatusCode": 200,
+        "expectedContent": "{\n    \"albumId\": 1,\n    \"id\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  }"
+      }
+    ],
+    "Post": [
+      {
+        "data_id": 1,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/users",
+        "method": "Post",
+        "expectedStatusCode": 201,
+        "requestBody": "{\n  \"id\": 110\n}",
+        "expectedContent": "{\n  \"id\": 11\n}"
+      },
+      {
+        "data_id": 2,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/albums",
+        "method": "Post",
+        "expectedStatusCode": 201,
+        "requestBody": "{\n  \"id\": 10\n}",
+        "expectedContent": "{\n  \"id\": 101\n}"
+      },
+      {
+        "data_id": 3,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/photos",
+        "method": "Post",
+        "expectedStatusCode": 201,
+        "requestBody": "{\n  \"id\": 200\n}",
+        "expectedContent": "{\n  \"id\": 5001\n}"
+      }
+    ],
+    "Put": [
+      {
+        "data_id": 1,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/users/5",
+        "method": "Put",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"name\": \"James D\",\n    \"username\": \"JD\",\n    \"email\": \"James.Dicosta@annie.ca\"\n}",
+        "expectedContent": "{\n  \"name\": \"James D\",\n  \"username\": \"JD\",\n  \"email\": \"James.Dicosta@annie.ca\",\n  \"id\": 5\n}"
+      },
+      {
+        "data_id": 2,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/albums/4",
+        "method": "Put",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"title\": \"nothing is impossible\"\n}",
+        "expectedContent": "{\n  \"title\": \"nothing is impossible\",\n  \"id\": 4\n}"
+      },
+      {
+        "data_id": 3,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/photos/5",
+        "method": "Put",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"url\": \"https://xyz.com\"\n}",
+        "expectedContent": "{\n  \"url\": \"https://xyz.com\",\n  \"id\": 5\n}"
+      }
+    ],
+    "Delete": [
+      {
+        "data_id": 1,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/users/5",
+        "method": "Delete",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"name\": \"James D\",\n    \"username\": \"JD\",\n    \"email\": \"James.Dicosta@annie.ca\"\n}",
+        "expectedContent": "{}"
+      },
+      {
+        "data_id": 2,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/albums/4",
+        "method": "Delete",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"title\": \"nothing is impossible\"\n}",
+        "expectedContent": "{}"
+      },
+      {
+        "data_id": 3,
+        "baseUri": "https://jsonplaceholder.typicode.com",
+        "endpoint": "/photos/5",
+        "method": "Delete",
+        "expectedStatusCode": 200,
+        "requestBody": "{\n    \"url\": \"https://xyz.com/\"\n}",
+        "expectedContent": "{}"
+      }
+    ]
+  }
+}
