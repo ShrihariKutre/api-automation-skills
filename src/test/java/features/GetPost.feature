@@ -1,4 +1,5 @@
 Feature: Get Post Operations
+  Background: Test data is loaded
   Test Get Post requests and verify response of API using RestAssured
 
 #  Scenario: Verify one author of the post
