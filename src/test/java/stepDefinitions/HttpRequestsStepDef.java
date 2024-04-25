@@ -10,13 +10,12 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 import org.junit.Assert;
 import utils.CommonFunctions;
 import utils.Pojo;
-
 import java.io.FileNotFoundException;
 import java.util.logging.Logger;
+
 
 public class HttpRequestsStepDef {
 
@@ -43,6 +42,7 @@ public class HttpRequestsStepDef {
         pojo = new Gson().fromJson(obj, Pojo.class);
         RestAssured.baseURI = pojo.getBaseUri();
         requestSpecification = RestAssured.given().contentType(ContentType.JSON);
+        log.info("Base URI has been set.");
     }
     @When("User sends the request to the endpoint")
     public void user_sends_the_request_to_the_endpoint() {
@@ -55,15 +55,17 @@ public class HttpRequestsStepDef {
         } else if (method.equalsIgnoreCase("Delete")) {
             response = requestSpecification.body(pojo.getRequestBody()).delete(pojo.getEndpoint());
         }
+        log.info("User has successfully sent the request to the endpoint.");
     }
     @Then("User can verify the response status code")
     public void user_can_verify_the_response_status_code() {
         Assert.assertEquals(pojo.getExpectedStatusCode(), response.getStatusCode());
+        log.info("Response status code is successfully verified.");
     }
     @Then("User can verify the response body")
     public void user_can_verify_the_response_body() {
         String responseBody = response.getBody().asString();
         Assert.assertTrue("Response body doesn't contain the expected value", responseBody.contains(pojo.getExpectedContent()));
-
+        log.info("Response contents are successfully verified.");
     }
 }
